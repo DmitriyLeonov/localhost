@@ -1,15 +1,12 @@
 <?php
-class Controller {
-	
-	public $model;
-	public $view;
-	
-	function __construct()
-	{
-		$this->view = new View();
-	}
-	
-	function action_index()
-	{
-	}
+
+namespace application\core;
+
+abstract class Controller {
+
+    public $route;
+    
+    public function __construct($route){
+        $this->route = $route;
+    }
 }

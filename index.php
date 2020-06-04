@@ -1,7 +1,6 @@
 <?php
 require_once 'application/lib/dev.php';
 
-use application\core\Router;
 use application\lib\Db;
 
 spl_autoload_register(function($class){
@@ -11,6 +10,6 @@ spl_autoload_register(function($class){
     }
 });
 session_start();
-$router = new Router;
-$db = new Db;
+$router = new application\core\Router;
+$router->run();
 ?>
