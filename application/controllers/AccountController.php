@@ -7,8 +7,11 @@ use application\core\Controller;
 class AccountController extends Controller{
     
     public function loginAction() {
-        echo 'Страница Входа';
-        var_dump($this->route);
+       $this->view->render('Login');
+    }
+    
+    public function registerAction() {
+       $this->view->render('Register');
     }
 }
 

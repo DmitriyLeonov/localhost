@@ -1,17 +1,24 @@
 <?php
-class View
-{
-	//public $template_view; // здесь можно указать общий вид по умолчанию.
-	
-	function generate($content_view, $template_view, $data = null)
-	{
-		/*
-		if(is_array($data)) {
-			// преобразуем элементы массива в переменные
-			extract($data);
-		}
-		*/
-		
-		include 'application/views/'.$template_view;
-	}
+
+namespace application\core;
+
+class View {
+
+    public $path;
+    public $route;
+    public $layout = 'default';
+
+
+    public function __construct($route){
+        $this->route = $route;
+        $this->path = $route['controller'].'/'.$route['action'];
+    }
+    
+    public function render($title, $vars = []) {
+        extract($vars);
+        ob_start();
+        require 'application/views/'.$this->path.'.php';
+        $content = ob_get_clean();
+        require_once 'application/views/layouts/'.$this->layout.'.php';
+    }
 }
