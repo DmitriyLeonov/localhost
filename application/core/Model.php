@@ -1,7 +1,16 @@
 <?php
-class Model
+
+namespace application\core;
+
+use application\lib\Db;
+
+abstract class Model
 {
-	public function get_data()
-	{
-	}
+    
+    public $db;
+
+
+    public function __construct() {
+        $this->db = new DB;
+    }
 }

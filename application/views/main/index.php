@@ -1,4 +1,7 @@
 <p>Main Page</p>
 
-<p>Name: <b><?php echo $name; ?></b></p>
-<p>Age: <b><?php echo $age; ?></b></p>
+<?php foreach ($task as $val): ?>
+<hr>
+<h3><?php echo $val['UserName'];?></h3>
+<p><?php echo $val['Text'];?></p>
+<?php endforeach; ?>
