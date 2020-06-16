@@ -1,20 +1,39 @@
 <?php
 
 return [
-
+    //MainController
 	'' => [
 		'controller' => 'main',
 		'action' => 'index',
 	],
 
-	'account/login' => [
-		'controller' => 'account',
+	'task' => [
+		'controller' => 'main',
+		'action' => 'task',
+	],
+    //UserController
+        'user/login' => [
+		'controller' => 'user',
 		'action' => 'login',
 	],
-
-	'account/register' => [
-		'controller' => 'account',
+    
+        'user/register' => [
+		'controller' => 'user',
 		'action' => 'register',
 	],
-	
+    
+        'user/logout' => [
+		'controller' => 'user',
+		'action' => 'logout',
+	],
+    
+        'user/add' => [
+		'controller' => 'user',
+		'action' => 'add',
+	],
+    
+        'user/edit' => [
+		'controller' => 'user',
+		'action' => 'edit',
+	],
 ];

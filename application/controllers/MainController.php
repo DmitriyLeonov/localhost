@@ -6,7 +6,7 @@ use application\core\Controller;
 use application\lib\Db;
 
 
-
+  
 class MainController extends Controller{
     
     public function IndexAction() {
@@ -15,6 +15,10 @@ class MainController extends Controller{
             'task' => $result,
         ];
         $this->view->render('Main page', $vars);
+    }
+    
+    public function postAction() {
+        $this->view->render('Current task');
     }
 }
 
