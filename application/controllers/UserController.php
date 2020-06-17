@@ -8,16 +8,20 @@ use application\lib\Db;
 class UserController extends Controller{
     
     public function loginAction() {
-        $this->view->render('login');
+        if(!empty($_POST)){
+            if(!$this->model->loginValidate($_POST)){
+                
+            }
+            $_SESSION['admin'] = true;
+            $this->view->location('/');
+        }
+        $this->view->render('Вход');
     }
     
     public function logoutAction() {
         
     }
     
-    public function registerAction() {
-        $this->view->render('register');
-    }
     
     public function addAction() {
         $this->view->render('add');
