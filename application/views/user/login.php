@@ -1,6 +1,6 @@
 <div class="container">
     <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Вход в панель Администратора</div>
+        <div class="card-header">Вход</div>
         <div class="card-body">
             <form action="/user/login" method="post">
                 <div class="form-group">

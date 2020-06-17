@@ -21,9 +21,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
+                        <?php if (isset($_SESSION['admin'])): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/logout">Выйти</a>
+                        </li>
+                        <?php else: ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/user/login">Войти</a>
                         </li>
+                        <?php endif; ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/user/add">Добавить задачу</a>
                         </li>

@@ -30,4 +30,8 @@ class View {
     public function location($url) {
 		exit(json_encode(['url' => $url]));
 	}
+        
+    public function message($status, $message) {
+		exit(json_encode(['status' => $status, 'message' => $message]));
+	}
 }

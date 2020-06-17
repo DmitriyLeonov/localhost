@@ -16,11 +16,11 @@
             <?php else: ?>
                 <?php foreach ($task as $val): ?>
                     <div class="post-preview">
-                        <a href="/post/<?php echo $val['Id']; ?>">
+                        <a href="/user/edit/<?php echo $val['Id']; ?>">
                             <h2 class="post-title"><?php echo htmlspecialchars($val['UserName'], ENT_QUOTES); ?></h2>
                             <h5 class="post-subtitle"><?php echo htmlspecialchars($val['Text'], ENT_QUOTES); ?></h5>
                         </a>
-                        <p class="post-meta">Идентфикатор этого поста <?php echo $val['Id']; ?></p>
+                       
                     </div>
                     <hr>
                 <?php endforeach; ?>

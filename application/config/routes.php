@@ -32,7 +32,7 @@ return [
 		'action' => 'add',
 	],
     
-        'user/edit' => [
+        'user/edit/{id:\d+}' => [
 		'controller' => 'user',
 		'action' => 'edit',
 	],
