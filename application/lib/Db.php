@@ -13,16 +13,16 @@ class Db {
 		$this->db = new PDO('mysql:host='.$config['host'].';dbname='.$config['dbname'].'', $config['user'], $config['password']);
 	}
 
-	public function query($sql, $params = []) {
-		$stmt = $this->db->prepare($sql);
-		if (!empty($params)) {
-			foreach ($params as $key => $val) {
-				$stmt->bindParam(':'.$key, $val);
-			}
-		}
-		$stmt->execute();
-		return $stmt;
-	}
+	public function query($sql, $params=[]) {
+        $stmt = $this->db->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+//        if (!empty($params)) {
+//            foreach ($params as $key => $val) {
+//                $stmt->bindValue(':'.$key, $val);
+//            }
+//        }
+        $stmt->execute($params);
+        return $stmt;
+        }
 
 	public function row($sql, $params = []) {
 		$result = $this->query($sql, $params);

@@ -40,11 +40,12 @@ class User extends Model{
     
     public function taskAdd($post) {
         $params = [
-            'Id' => '',
-            'UserName' => post['name'],
-            'E-mail' => post['e-mail'],
-            'Text' => post['text'],
+            'id' => null,
+            'user' => $post['name'],
+            'email' => $post['e-mail'],
+            'text' => $post['text'],
         ];
-        $this->db->query("INSERT INTO task (Id, UserName, E-mail, Text) VALUES (:Id, :UserName, :E-mail, :Text)", $params);
+        $this->db->query('INSERT INTO `task`(id,username, email, text) VALUES (:id, :user, :email, :text)', $params);
+        return $this->db->lastInsertId();
     }
 }

@@ -33,7 +33,8 @@ class UserController extends Controller{
                 $this->view->message('error', $this->model->error);
             }
             $this->model->taskAdd($_POST);
-            $this->view->message('success', 'Задание добавлено');
+            //$this->view->message('success', 'Задание добавлено');
+            $this->view->location('/');
         }
         $this->view->render('Добавить');
     }
