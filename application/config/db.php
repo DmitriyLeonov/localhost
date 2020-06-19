@@ -3,7 +3,7 @@
 return [
     'host' => 'den1.mssql7.gear.host',
     'dbname' => 'testdb82',
-    'password' => 'Uk997WxS!-gH',
+    'password' => 'Fn8I6o-i!xba',
     'user' => 'root',
 ];
 
