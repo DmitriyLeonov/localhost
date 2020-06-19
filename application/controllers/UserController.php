@@ -40,8 +40,20 @@ class UserController extends Controller{
     }
     
     public function editAction() {
-        debug($this->route['id']);
-        $this->view->render('edit');
+        if(!$this->model->isTaskExist($this->route['id'])){
+            $this->view->errorCode(404);
+        }
+        if(!empty($_POST)){
+            if(!$this->model->taskValidate($_POST)){
+                $this->view->message('error', $this->model->error);
+            }
+            $this->model->taskEdit($_POST, $this->route['id']);
+            $this->view->location('/');
+        }
+        $vars = [
+            'data' => $this->model->taskData($this->route['id'])[0],
+        ];
+        $this->view->render('Редактирование', $vars);
     }
 }
 

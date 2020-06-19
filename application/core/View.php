@@ -28,10 +28,19 @@ class View {
     }
     
     public function location($url) {
-		exit(json_encode(['url' => $url]));
-	}
+	exit(json_encode(['url' => $url]));
+    }
         
     public function message($status, $message) {
-		exit(json_encode(['status' => $status, 'message' => $message]));
+	exit(json_encode(['status' => $status, 'message' => $message]));
+    }
+    
+    public static function errorCode($code) {
+	http_response_code($code);
+	$path = 'application/views/errors/'.$code.'.php';
+	if (file_exists($path)) {
+		require $path;
 	}
+	exit;
+    }
 }

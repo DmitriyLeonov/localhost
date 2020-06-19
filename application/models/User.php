@@ -48,4 +48,32 @@ class User extends Model{
         $this->db->query('INSERT INTO `task`(id,username, email, text) VALUES (:id, :user, :email, :text)', $params);
         return $this->db->lastInsertId();
     }
+    
+    public function isTaskExist($id) {
+        $params = [
+            'id' => $id,
+        ];
+        return $this->db->column('SELECT id FROM `task` WHERE id = :id',$params);
+    }
+    
+    public function taskData($id) {
+        $params = [
+            'id' => $id,
+        ];
+        return $this->db->row('SELECT * FROM `task` WHERE id = :id',$params);
+    }
+    
+    public function taskEdit($post, $id) {
+        if ($post['iscomplete'] == NULL){
+            $post['iscomplete'] = 0;
+        }
+        $params = [
+            'id' => $id,
+            'user' => $post['name'],
+            'email' => $post['e-mail'],
+            'text' => $post['text'],
+            'iscomplete' => $post['iscomplete'],
+        ];
+        $this->db->query('UPDATE task SET username = :user, email = :email, text = :text, iscomplete = :iscomplete, updated = NOW() WHERE id = :id', $params);
+    }
 }

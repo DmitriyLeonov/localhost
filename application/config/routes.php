@@ -6,10 +6,9 @@ return [
 		'controller' => 'main',
 		'action' => 'index',
 	],
-
-	'task' => [
+	'main/index/{page:\d+}' => [
 		'controller' => 'main',
-		'action' => 'task',
+		'action' => 'index',
 	],
     //UserController
         'user/login' => [
