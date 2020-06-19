@@ -18,7 +18,7 @@ class Main extends Model{
     public function taskList($route) {
         $params = [
             'max' => 3,
-            'start' => (($route['page'] ? 1) - 1)*3,
+            'start' => (($route['page'] ?? 1) - 1)*3,
         ];
         return $this->db->row('SELECT * FROM task ORDER BY time DESC LIMIT :start, :max',$params);
     }
